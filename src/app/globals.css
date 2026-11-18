@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Swanky and Moo Moo';
+  src: url('/fonts/swanky-and-moo-moo.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-accent: 'Swanky and Moo Moo', cursive;
+  --color-sand: #d6c8b2;
+  --color-muted-beige: #b7ab98;
+  --color-coral-red: #e97f61;
+  --color-dark-charcoal: #2f2c29;
+  --color-navy-bg: #142337;
+  --color-deep-navy: #0c1726;
+  --color-night-black: #08090a;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-night-black);
+  color: var(--color-sand);
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-night-black);
+  color: var(--color-sand);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #e97f61;
+  color: #08090a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f2c29;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b7ab98;
+}
+
+/* Film grain effect */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Typography helper classes */
+.font-accent {
+  font-family: var(--font-accent), cursive;
+}
+
+.text-sand {
+  color: var(--color-sand);
+}
+
+.text-mutedBeige {
+  color: var(--color-muted-beige);
+}
+
+.text-coralRed {
+  color: var(--color-coral-red);
+}
+
+.bg-darkCharcoal {
+  background-color: var(--color-dark-charcoal);
+}
+
+.site-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 80rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
