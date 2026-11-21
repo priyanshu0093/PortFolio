@@ -25,7 +25,7 @@ export const PROJECTS: ProjectItem[] = [
     stack: ["React.js", "Node.js", "Express", "MongoDB", "Socket.IO", "JWT"],
     headline: "Intelligent guest directory management, dynamic passcodes, and RSVP coordination.",
     description:
-      "A production-grade event platform engineered during internship at Vkaaps Technology. Empowers organizers to manage large guest lists with bulk CSV upload, automated invitation links, unique passcodes, and multi-host permissions.",
+      "A production-grade event platform engineered during internship at Vkaps Technology. Empowers organizers to manage large guest lists with bulk CSV upload, automated invitation links, unique passcodes, and multi-host permissions.",
     features: [
       "Reusable guest directory module with bulk CSV ingestion",
       "Cryptographic Event IDs and dynamic passcodes for entrance",

@@ -55,9 +55,9 @@ export const ABOUT_CONTENT = {
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "vkaaps",
+    id: "vkaps",
     role: "Full Stack Developer Intern",
-    company: "Vkaaps Technology",
+    company: "Vkaps Technology",
     period: "September 2026 – Present",
     stack: "MERN Stack · Socket.IO · RESTful APIs",
     description: [
@@ -103,8 +103,8 @@ export const CERTIFICATIONS: CertificationItem[] = [
     link: "https://leetcode.com/u/ZwTq2z7rMh/",
   },
   {
-    title: "Vkaaps Hackathon Finalist",
-    issuer: "Vkaaps Hackathon (October 2026)",
+    title: "Vkaps Hackathon Finalist",
+    issuer: "Vkaps Hackathon (October 2026)",
     detail: "Built and deployed A Una Milla and PlayMate under 48-hour sprint deadlines.",
   },
 ];

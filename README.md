@@ -30,7 +30,7 @@
 - **Interactive Project Showcase**: Slide-based project explorer with real-time tech tags and GitHub / live demo links.
 - **Hackathon Section**: Dedicated sprint showcase featuring live Vercel deployments.
 - **Categorized Skills**: Interactive skill grouping across Languages, Frontend, Backend, Databases, Tools, and Core Concepts.
-- **Experience Timeline**: Career milestones at Vkaaps Technology and Kiaan Technology with live SaaS preview links.
+- **Experience Timeline**: Career milestones at Vkaps Technology and Kiaan Technology with live SaaS preview links.
 - **Responsive & Accessible**: Optimized for smooth performance across mobile, tablet, and desktop viewports.
 
 ---

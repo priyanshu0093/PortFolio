@@ -24,12 +24,12 @@ interface HackathonProject {
 const HACKATHON_PROJECTS: HackathonProject[] = [
   {
     id: "hackathon-a-una-milla",
-    tag: "Vkaaps Hackathon 2026",
+    tag: "Vkaps Hackathon 2026",
     number: "HACK 01",
     title: "A Una Milla de Tu Destino",
     category: "Travel Savings & Flight Discovery",
     description:
-      "Engineered during the 48-hour Vkaaps Hackathon. Integrates live airline inventory via Duffel and Amadeus APIs with an algorithmic cash-versus-points valuation calculator and alternative-airport routing.",
+      "Engineered during the 48-hour Vkaps Hackathon. Integrates live airline inventory via Duffel and Amadeus APIs with an algorithmic cash-versus-points valuation calculator and alternative-airport routing.",
     stack: ["React.js", "Node.js", "PostgreSQL", "Duffel API", "Amadeus API", "Zod", "Vitest"],
     features: [
       "Real-time flight search aggregator via Duffel & Amadeus APIs",
@@ -44,7 +44,7 @@ const HACKATHON_PROJECTS: HackathonProject[] = [
   },
   {
     id: "hackathon-playmate",
-    tag: "Vkaaps Hackathon 2026",
+    tag: "Vkaps Hackathon 2026",
     number: "HACK 02",
     title: "PlayMate",
     category: "Sports Matchmaking & Turf Booking",
@@ -82,7 +82,7 @@ export default function Hackathon() {
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <Flame className="size-4 text-coralRed" />
               <span className="text-xs uppercase tracking-[0.25em] text-coralRed font-mono block">
-                Vkaaps Hackathon · October 2026
+                Vkaps Hackathon · October 2026
               </span>
             </div>
             <h2 className="font-accent text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-sand font-normal leading-none tracking-tight">
@@ -100,7 +100,7 @@ export default function Hackathon() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-sand/80 max-w-2xl font-light leading-relaxed"
           >
-            High-velocity full-stack applications engineered under 48-hour sprint constraints during the Vkaaps Hackathon, deployed live on Vercel.
+            High-velocity full-stack applications engineered under 48-hour sprint constraints during the Vkaps Hackathon, deployed live on Vercel.
           </motion.p>
         </div>
 
