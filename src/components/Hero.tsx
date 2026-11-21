@@ -13,9 +13,9 @@ export default function Hero() {
   });
 
   // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "24%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
@@ -36,20 +36,20 @@ export default function Hero() {
           priority
           quality={95}
           sizes="100vw"
-          className="object-cover object-[65%_center] md:object-center select-none pointer-events-none"
+          className="object-cover object-[70%_center] sm:object-center select-none pointer-events-none"
         />
 
         {/* Soft top gradient for navbar legibility */}
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#08090A]/70 via-[#08090A]/20 to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-36 sm:h-44 bg-gradient-to-b from-[#08090A]/80 via-[#08090A]/30 to-transparent pointer-events-none" />
 
-        {/* Soft bottom gradient to seamlessly blend into the dark foreground and About section */}
-        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#08090A] via-[#08090A]/50 to-transparent pointer-events-none" />
+        {/* Soft bottom gradient to blend into About section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#08090A] via-[#08090A]/50 to-transparent pointer-events-none" />
       </motion.div>
 
       {/* Hero Content Overlay */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="site-container relative z-10 flex flex-col justify-start pt-28 sm:pt-36 lg:pt-40 2xl:pt-48 pb-16 pointer-events-none"
+        className="site-container relative z-10 flex flex-col justify-start pt-24 sm:pt-36 lg:pt-40 2xl:pt-48 pb-12 pointer-events-none"
       >
         <div className="flex flex-col max-w-2xl text-left pointer-events-auto">
           {/* Greeting: "Hello, I'm" */}
@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="font-accent text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] text-sand font-normal leading-[0.88] tracking-normal my-1 sm:my-2 select-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+            className="font-accent text-5xl min-[360px]:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-sand font-normal leading-[0.9] tracking-normal my-1 sm:my-2 select-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
           >
             {PERSONAL_INFO.name}
           </motion.h1>
@@ -77,12 +77,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-3 sm:mt-5 space-y-1.5"
+            className="mt-2 sm:mt-4 space-y-1"
           >
-            <p className="font-accent text-xl sm:text-2xl md:text-3xl text-sand font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-accent text-lg sm:text-2xl md:text-3xl text-sand font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {PERSONAL_INFO.tagline}
             </p>
-            <p className="font-accent text-lg sm:text-xl md:text-2xl text-sand/90 font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-accent text-base sm:text-xl md:text-2xl text-sand/90 font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {PERSONAL_INFO.secondaryTagline}
             </p>
           </motion.div>
@@ -92,10 +92,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 flex items-center gap-3 drop-shadow-md"
+            className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3 drop-shadow-md"
           >
-            <span className="inline-block size-2 rounded-full bg-coralRed animate-pulse shadow-[0_0_8px_#e97f61]" />
-            <span className="font-sans text-xs sm:text-sm uppercase tracking-widest text-coralRed font-semibold">
+            <span className="inline-block size-2 rounded-full bg-coralRed animate-pulse shadow-[0_0_8px_#e97f61] shrink-0" />
+            <span className="font-sans text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest text-coralRed font-semibold">
               {PERSONAL_INFO.role} — {PERSONAL_INFO.subRole}
             </span>
           </motion.div>
@@ -103,11 +103,11 @@ export default function Hero() {
       </motion.div>
 
       {/* Subtle bottom scroll prompt */}
-      <div className="site-container relative z-10 pb-8 flex items-center justify-between text-mutedBeige/70 text-xs tracking-widest uppercase font-mono">
+      <div className="site-container relative z-10 pb-6 sm:pb-8 flex items-center justify-between text-mutedBeige/70 text-xs tracking-widest uppercase font-mono">
         <span className="hidden sm:inline">Indore, India</span>
         <a
           href="#about"
-          className="flex items-center gap-2 hover:text-sand transition-colors cursor-pointer"
+          className="flex items-center gap-2 hover:text-sand transition-colors cursor-pointer ml-auto sm:ml-0"
         >
           <span>Scroll down</span>
           <span className="inline-block animate-bounce">↓</span>

@@ -21,6 +21,7 @@ export interface CertificationItem {
   title: string;
   issuer: string;
   detail?: string;
+  link?: string;
 }
 
 export const PERSONAL_INFO = {
@@ -35,6 +36,7 @@ export const PERSONAL_INFO = {
   location: "Indore, Madhya Pradesh, India",
   github: "https://github.com/priyanshu0093",
   linkedin: "https://linkedin.com/in/priyanshu-kumawat-829501320",
+  leetcode: "https://leetcode.com/u/ZwTq2z7rMh/",
   resumePath: "/resume.pdf",
 };
 
@@ -43,16 +45,12 @@ export const ABOUT_CONTENT = {
   headlinePart2: "by profession.",
   subHeadlinePart1: "Problem solver",
   subHeadlinePart2: "by ambition.",
-  paragraphs: [
+  introParagraph:
     "I am Priyanshu Kumawat, a B.Tech Computer Science student and MERN Full Stack Developer based in Indore, Madhya Pradesh.",
-    "I enjoy building digital products, developing scalable web applications, and solving practical engineering problems through clean, robust software architectures.",
+  philosophyParagraph1:
     "I believe great software is built where thoughtful design meets solid engineering. My experience spans SaaS platforms, real-time applications, event management systems, and secure backend architectures.",
+  philosophyParagraph2:
     "I enjoy going beyond writing code — understanding problems, designing solutions, and turning complex workflows into seamless digital experiences.",
-  ],
-  quote: {
-    text: "First, solve the problem. Then, write the code.",
-    author: "John Johnson",
-  },
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -80,7 +78,6 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Engineered an enterprise multi-tenant SaaS application enabling secure, scalable organizational resource and desk scheduling.",
       "Architected real-time availability synchronization and automated slot-conflict prevention engines powered by Socket.IO.",
       "Hardened backend REST endpoints with stateless JWT authentication, secure session handling, and granular role-based access control (RBAC).",
-      "Deployed and maintained live production environment on Render with continuous integration.",
     ],
   },
 ];
@@ -102,12 +99,13 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     title: "Data Structures & Algorithms",
     issuer: "Physics Wallah",
-    detail: "Algorithmic problem solving, complexity analysis, and 100+ LeetCode problems solved.",
+    detail: "Algorithmic problem solving and data structures; 100+ problems solved across LeetCode.",
+    link: "https://leetcode.com/u/ZwTq2z7rMh/",
   },
   {
     title: "Vkaaps Hackathon Finalist",
     issuer: "Vkaaps Hackathon (October 2026)",
-    detail: "Built and pitched two complete production applications: A Una Milla and PlayMate under intense 48-hour deadlines.",
+    detail: "Built and deployed A Una Milla and PlayMate under 48-hour sprint deadlines.",
   },
 ];
 

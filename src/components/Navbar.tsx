@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { name: "ABOUT", href: "#about" },
   { name: "WORK", href: "#work" },
-  { name: "HACKATHON", href: "#hackathons" },
+  { name: "HACKATHONS", href: "#hackathons" },
   { name: "SKILLS", href: "#skills" },
   { name: "EXPERIENCE", href: "#experience" },
   { name: "CONTACT", href: "#contact" },
@@ -26,20 +25,32 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scrolling when mobile navigation drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-[#08090A]/85 backdrop-blur-md py-4 border-b border-[#2f2c29]/50 shadow-lg"
-            : "bg-transparent py-6 lg:py-8"
+            ? "bg-[#08090A]/90 backdrop-blur-md py-3.5 sm:py-4 border-b border-[#2f2c29]/50 shadow-lg"
+            : "bg-transparent py-5 sm:py-6 lg:py-8"
         }`}
       >
         <div className="site-container flex items-center justify-between">
           {/* Desktop Left Nav Links */}
           <nav
             aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-8 lg:gap-12"
+            className="hidden md:flex items-center gap-7 lg:gap-11"
           >
             {NAV_LINKS.map((link) => (
               <a
@@ -69,10 +80,10 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Mobile View: Logo / Name on Left, Hamburger on Right */}
+          {/* Mobile View: Minimal Name on Left, Hamburger Button on Right */}
           <div className="flex md:hidden w-full items-center justify-between">
             <a
-              href="#"
+              href="#hero"
               className="font-accent text-2xl text-sand tracking-normal"
             >
               Priyanshu
@@ -81,8 +92,8 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              aria-label="Open mobile menu"
-              className="size-11 rounded-full bg-mutedBeige/15 backdrop-blur-md border border-mutedBeige/20 flex items-center justify-center text-sand active:scale-95 transition-transform"
+              aria-label="Open mobile navigation menu"
+              className="size-11 rounded-full bg-[#142337]/50 backdrop-blur-md border border-[#2f2c29] flex items-center justify-center text-sand active:scale-95 transition-transform"
             >
               <Menu className="size-5" />
             </button>
@@ -90,15 +101,15 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Fullscreen Mobile Menu Overlay */}
+      {/* Fullscreen Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[#08090A]/95 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-10"
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 bg-[#08090A]/95 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-10 overflow-y-auto"
           >
             <div className="flex items-center justify-between">
               <span className="font-accent text-3xl text-sand">Priyanshu</span>
@@ -106,22 +117,22 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close mobile menu"
-                className="size-11 rounded-full bg-mutedBeige/15 backdrop-blur-md border border-mutedBeige/20 flex items-center justify-center text-sand"
+                className="size-11 rounded-full bg-[#142337]/50 backdrop-blur-md border border-[#2f2c29] flex items-center justify-center text-sand active:scale-95 transition-transform"
               >
                 <X className="size-5" />
               </button>
             </div>
 
-            <div className="flex flex-col gap-6 my-auto py-8">
+            <div className="flex flex-col gap-5 my-auto py-8">
               {NAV_LINKS.map((link, idx) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.05 }}
-                  className="text-3xl font-light tracking-wide text-sand hover:text-coralRed transition-colors"
+                  transition={{ delay: 0.05 + idx * 0.04 }}
+                  className="text-2xl sm:text-3xl font-light tracking-wide text-sand hover:text-coralRed transition-colors"
                 >
                   {link.name}
                 </motion.a>
@@ -132,18 +143,18 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.35 }}
-                className="inline-flex items-center gap-2 text-2xl font-light text-coralRed pt-4 border-t border-mutedBeige/20"
+                transition={{ delay: 0.3 }}
+                className="inline-flex items-center gap-2 text-xl sm:text-2xl font-light text-coralRed pt-4 border-t border-mutedBeige/20"
               >
                 <span>RESUME</span>
-                <ArrowUpRight className="size-6" />
+                <ArrowUpRight className="size-5" />
               </motion.a>
             </div>
 
-            <div className="text-xs text-mutedBeige/60 tracking-widest uppercase">
-              Priyanshu Kumawat · Full Stack Developer · Indore, India
+            <div className="text-xs text-mutedBeige/60 tracking-wider uppercase font-mono">
+              Priyanshu Kumawat · Full Stack Developer
             </div>
           </motion.div>
         )}
@@ -151,4 +162,3 @@ export default function Navbar() {
     </>
   );
 }
-
