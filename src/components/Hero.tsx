@@ -22,7 +22,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100svh] w-full flex flex-col justify-between overflow-hidden bg-[#08090A]"
+      className="relative min-h-[100svh] w-full max-w-full flex flex-col justify-between overflow-x-hidden bg-[#08090A]"
     >
       {/* Background Image Container with Cinematic Parallax */}
       <motion.div
@@ -46,18 +46,18 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#08090A] via-[#08090A]/50 to-transparent pointer-events-none" />
       </motion.div>
 
-      {/* Hero Content Overlay */}
+      {/* Hero Content Overlay with explicit safe side margins */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="site-container relative z-10 flex flex-col justify-start pt-24 sm:pt-36 lg:pt-40 2xl:pt-48 pb-12 pointer-events-none"
+        className="site-container relative z-10 flex flex-col justify-start pt-24 sm:pt-36 lg:pt-40 2xl:pt-48 pb-12 px-6 sm:px-8 md:px-12 pointer-events-none max-w-full"
       >
-        <div className="flex flex-col max-w-2xl text-left pointer-events-auto">
+        <div className="flex flex-col max-w-xl w-full text-left pointer-events-auto">
           {/* Greeting: "Hello, I'm" */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-accent text-2xl sm:text-3xl md:text-4xl text-sand font-normal leading-tight tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            className="font-accent text-xl sm:text-2xl md:text-3xl text-sand font-normal leading-tight tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             Hello, I&apos;m
           </motion.p>
@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="font-accent text-5xl min-[360px]:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-sand font-normal leading-[0.9] tracking-normal my-1 sm:my-2 select-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+            className="font-accent text-[2.75rem] min-[360px]:text-[3.25rem] min-[400px]:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-sand font-normal leading-[0.92] tracking-normal my-1 sm:my-2 select-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-full"
           >
             {PERSONAL_INFO.name}
           </motion.h1>
@@ -77,33 +77,35 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-2 sm:mt-4 space-y-1"
+            className="mt-2 sm:mt-4 space-y-1.5 max-w-full"
           >
-            <p className="font-accent text-lg sm:text-2xl md:text-3xl text-sand font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-accent text-base min-[360px]:text-lg sm:text-2xl md:text-3xl text-sand font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {PERSONAL_INFO.tagline}
             </p>
-            <p className="font-accent text-base sm:text-xl md:text-2xl text-sand/90 font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-accent text-sm min-[360px]:text-base sm:text-xl md:text-2xl text-sand/90 font-normal leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {PERSONAL_INFO.secondaryTagline}
             </p>
           </motion.div>
 
-          {/* Professional Subtitle Tag */}
+          {/* Professional Subtitle Tag - cleanly wrapped for mobile */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3 drop-shadow-md"
+            className="mt-4 sm:mt-6 flex items-center gap-2.5 drop-shadow-md max-w-full"
           >
             <span className="inline-block size-2 rounded-full bg-coralRed animate-pulse shadow-[0_0_8px_#e97f61] shrink-0" />
-            <span className="font-sans text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest text-coralRed font-semibold">
-              {PERSONAL_INFO.role} — {PERSONAL_INFO.subRole}
-            </span>
+            <div className="font-sans text-xs uppercase tracking-wider text-coralRed font-semibold flex flex-wrap items-center gap-x-2 gap-y-0.5">
+              <span>{PERSONAL_INFO.role}</span>
+              <span className="text-coralRed/50">•</span>
+              <span>{PERSONAL_INFO.subRole}</span>
+            </div>
           </motion.div>
         </div>
       </motion.div>
 
       {/* Subtle bottom scroll prompt */}
-      <div className="site-container relative z-10 pb-6 sm:pb-8 flex items-center justify-between text-mutedBeige/70 text-xs tracking-widest uppercase font-mono">
+      <div className="site-container relative z-10 pb-6 sm:pb-8 px-6 sm:px-8 md:px-12 flex items-center justify-between text-mutedBeige/70 text-xs tracking-widest uppercase font-mono max-w-full">
         <span className="hidden sm:inline">Indore, India</span>
         <a
           href="#about"
