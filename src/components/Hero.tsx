@@ -36,7 +36,7 @@ export default function Hero() {
           priority
           quality={95}
           sizes="100vw"
-          className="object-cover object-[70%_center] sm:object-center select-none pointer-events-none"
+          className="object-cover object-[44%_center] md:object-center select-none pointer-events-none"
         />
 
         {/* Soft top gradient for navbar legibility */}
